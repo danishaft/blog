@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgba(17, 24, 39, 1);
+}
+.BG {
+    background-color: rgba(17, 24, 39, 1);
+    color: white;
+}
+header {
+    border-bottom: 0.1px solid #e5e7eb;
+}
+
+.blur-text {
+    color:  #ccd5e7;
+     opacity: 0.8;
+}
+.small-text {
+    font-size: 15px;
+}
+.big-text {
+    font-size: 60px;
+}
+.i-focus:focus {
+    border: none !important;
+    outline: 0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+    background-color: rgba(17, 24, 39, 1);
+    color: white;
+}
+.sub-focus:focus {
+    background-color: rgba(17, 24, 39, 1);
+    color: white;
+    box-shadow: none !important;
+}
+input, textarea{
+    color: white;
+}
