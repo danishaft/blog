@@ -18,9 +18,7 @@ body {
 .small-text {
     font-size: 15px;
 }
-.big-text {
-    font-size: 57px;
-}
+
 .i-focus:focus {
     border: none !important;
     outline: 0px !important;
