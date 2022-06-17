@@ -11,60 +11,63 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar navbar-expand-lg  text-light py-3" style="background-color: rgba(17, 24, 39, 0.98);">
-            <div class="container">
-                <h2 ><a href="index.html" class="text-white fs-1" style="text-decoration: none;">Danny's Blog</a></h2>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center align-items-center">
-                  <li class="nav-item">
-                    <a class="btn btn-primary me-2 " href="create.html" >Write</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link me-2 fw-bold fs-4 text-light" href="#" ><i class="bi bi-search"></i></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link me-2 fw-bold fs-4 text-light" href="#" ><i class="bi bi-bell"></i></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link me-2 fw-bold fs-4 text-light" href="index.html"><i class="bi bi-house"></i></a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-bold text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style=" font-size: 14px;">
-                      <img src="img/profile.jpg" style="width: 4rem;" class="img-fluid rounded-circle"  alt="profile picture">
-                    </a>
-                    <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="profile.html" style="color: #060316; font-size: 14px;">Profile</a></li>
-                      <li><a class="dropdown-item" href="rating-page.html" style="color: #060316; font-size: 14px;">Reviews</a></li>
-                      <li><a class="dropdown-item" href="payment.html" style="color: #060316; font-size: 14px;">Payments</a></li>
-                      <li><a class="dropdown-item" href="dashboard.html" style="color: #060316; font-size: 14px;">Created Events</a></li>
-                      <li><a class="dropdown-item" href="bookmarks.html" style="color: #060316; font-size: 14px;">Bookmarks</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="log-in.html" style="color: #060316; font-size: 14px;">Log Out</a></li>
-                    </ul>
-                  </li>
+  <header style=" border-bottom: 0.1px solid #e5e7eb;">
+    <nav class="navbar navbar-expand-lg  text-light py-3" style="background-color: rgba(17, 24, 39, 0.98);">
+        <div class="container">
+            <h2><a href="index.html" class="text-white fs-1" style="text-decoration: none;">Danny's Blog</a></h2>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon ">
+              <i class="bi bi-list" style="color:#fff; font-size:28px"></i>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center align-items-center">
+              <li class="nav-item">
+                <a class="nav-link me-2 fw-bold fs-4 text-light" href="#" ><i class="bi bi-search"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2 fw-bold fs-4 text-light" href="#" ><i class="bi bi-bell"></i></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-2 fw-bold fs-4 text-light" href="index.html"><i class="bi bi-house"></i></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle fw-bold text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style=" font-size: 14px;">
+                  <img src="img/profile.jpg" style="width: 4rem;" class="img-fluid rounded-circle"  alt="profile picture">
+                </a>
+                <ul class="dropdown-menu border-0 text-white" style="background-color: rgb(30, 39, 58); pointer-events:none;" aria-labelledby="navbarDropdown">
+                  <li class="item" ><a class="dropdown-item text-white" href="#" style=" font-size: 17px;"><i class="bi bi-file-earmark-medical me-2"></i>Drafts</a></li>
+                  <li><a class="dropdown-item text-white" href="#" style=" font-size: 17px;"><i class="bi bi-bookmarks me-2"></i>My Bookmarks</a></li>
+                  <li><a class="dropdown-item text-white" href="#" style=" font-size: 17px;"><i class="bi bi-person-circle me-2"></i>Accounts setting</a></li>
+                  <li><a class="dropdown-item text-white" href="#" style=" font-size: 17px;"><i class="bi bi-window-fullscreen me-2"></i>Manage your Blogs</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item text-danger" href="#" style=" font-size: 17px;"><i class="bi bi-box-arrow-right me-2 "></i>Log Out</a></li>
                 </ul>
-              </div>
-            </div>
-          </nav>
-    </header>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+  
 
    <section class="blog py-5 text-light ">
         <div class="container px-lg-5">
             <div class="post-container px-5">
               <div class="details">
                 <div class="title text-center py-5">
-                    <h1 class="big-text fw-bold" id="post-title">Card Title Means This</h1>
+                    <h1 class="big-text fw-bold text-start" id="post-title">Card Title Means This</h1>
                 </div>
-                <div class="top d-flex justify-content-between align-self-center pb-5" style="width: 100%;">
-                    <p style="width: 30%;" class=" ">Subscribe to my newsletter and <br> never miss my upcoming articles</p>
-                    <div class="input-group input-group-lg " style="width: 75%;">
-                      <input type="text" class="form-control BG" placeholder="Email adress" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                <div class="row py-5">
+                  <div class="col-lg-3 col-md-4 col-12">
+                    <p  class="">Subscribe to my newsletter and  never miss my upcoming articles</p>
+                  </div>
+                  <div class="col-lg-9 col-md-8 col-12">
+                    <div class="input-group input-group " >
+                      <input type="text" class="form-control py-lg-4 py-sm-3 BG sub-focus" placeholder="Email address" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                       <span class="input-group-text" id="inputGroup-sizing-lg">SUBSCRIBE</span>
                     </div>
+                  </div>
                 </div>
                 <div class="body py-5 fs-3" id="post-body">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos odit voluptate velit nisi dicta, pariatur eligendi neque perspiciatis deleniti,

@@ -64,7 +64,7 @@ function createPosts(e) {
     console.log(postBox)
     let postHolder = '';
     postBox.forEach(post => {
-         postHolder += `<div class="col-12">
+         postHolder += `<div class="col-12" >
                             <div class="card border-0 my-3" style="background-color: rgba(17, 24, 39, 0.9);">
                                 <div class="card-body">
                                     <h5 class="card-title fs-1 fw-bold">${post.title}</h5>
@@ -81,10 +81,9 @@ function createPosts(e) {
                             </div>
                         </div>`
     });
-    postWrapper.innerHTML = postHolder;
+    postWrapper.innerHTML = postHolder
     
-  });
-  form.reset()
+  })
 }
 
 
@@ -137,7 +136,6 @@ function openSingle(id) {
   fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
       localStorage.setItem('viewedPost', JSON.stringify(data))
       window.location.href = 'detials.html'
     });
@@ -147,18 +145,21 @@ function openSingle(id) {
 
 
 function deletePost(id) {
-  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-    method: 'DELETE',
-})
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data)
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+        method: 'DELETE',
+        headers: {
+          "Content-type": "application/json"
+      }
+    })
+        .then((response) => response.json())
+        .then((data) => {
 
-      postBox = postBox.filter(post => post.id !== id)
+        //postBox = postBox.filter(post => post.id !== id)
+        postBox.shift(data)
 
-      let postHolder = '';
-    postBox.forEach(post => {
-         postHolder += `<div class="col-12">
+        let postHolder = '';
+      postBox.forEach(post => {
+         postHolder += `<div class="col-12" >
                             <div class="card border-0 my-3" style="background-color: rgba(17, 24, 39, 0.9);">
                                 <div class="card-body">
                                     <h5 class="card-title fs-1 fw-bold">${post.title}</h5>
@@ -175,7 +176,7 @@ function deletePost(id) {
                             </div>
                         </div>`
     });
-    postWrapper.innerHTML = postHolder;
+    postWrapper.innerHTML = postHolder
     })
     
 }
