@@ -24,10 +24,10 @@ function getPosts() {
                                     <p class="time blur-text small-text">Jun 15 2021</p>
                                     <p class="card-text fs-5 blur-text">${post.body.slice(0, 200)}</p>
                                     <div class="down d-flex justify-content-between px-2">
-                                        <a href="/detials.html?id=${post.id}" class="card-link">More...</a>
+                                        <a  class="card-link" onclick="openSingle(${post.id})">View...</a>
                                         <div class="postcard-button">
-                                            <button type="button" class="btn btn-outline-primary mx-2 rounded"><i class="bi bi-trash3 pe-2"></i>Delete</button>
-                                            <button type="button" class="btn btn-outline-primary rounded"><i class="bi bi-pencil-square pe-2"></i>Edit</button>
+                                            <button type="button"  class="btn btn-outline-primary mx-2 rounded" onclick="deletePost(${post.id})"><i class="bi bi-trash3 pe-2"></i>Delete</button>
+                                            <button type="button" class="btn btn-outline-primary rounded" onclick="updatePost(${post.id})"><i class="bi bi-pencil-square pe-2"></i>Edit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@ function getPosts() {
     postWrapper.innerHTML = postHolder;
 
   })
-};
+}
 
 
 
@@ -62,7 +62,6 @@ function createPosts(e) {
 
     postBox.unshift(data);
     console.log(postBox)
-    
     let postHolder = '';
     postBox.forEach(post => {
          postHolder += `<div class="col-12">
@@ -72,10 +71,10 @@ function createPosts(e) {
                                     <p class="time blur-text small-text">Jun 15 2021</p>
                                     <p class="card-text fs-5 blur-text">${post.body.slice(0, 200)}</p>
                                     <div class="down d-flex justify-content-between px-2">
-                                        <a href="/detials.html?id=${post.id}" class="card-link" >More...</a>
+                                        <a href="" class="card-link" onclick="openSingle(${post.id})">View...</a>
                                         <div class="postcard-button">
-                                            <button type="button" class="btn btn-outline-primary mx-2 rounded"><i class="bi bi-trash3 pe-2"></i>Delete</button>
-                                            <button type="button" class="btn btn-outline-primary rounded"><i class="bi bi-pencil-square pe-2"></i>Edit</button>
+                                            <button type="button" class="btn btn-outline-primary mx-2 rounded" onclick="deletePost(${post.id})"><i class="bi bi-trash3 pe-2"></i>Delete</button>
+                                            <button type="button" class="btn btn-outline-primary rounded" onclick="updatePost(${post.id})"><i class="bi bi-pencil-square pe-2"></i>Edit</button>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +82,101 @@ function createPosts(e) {
                         </div>`
     });
     postWrapper.innerHTML = postHolder;
+    
   });
+  form.reset()
+}
 
-};
+
+
+
+function updatePost(id) {
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      id: id,
+      title: title.value,
+      body: body.value,
+      userId: 1,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+})
+    .then((response) => response.json())
+
+    .then((data) => {
+
+      console.log(data)
+
+      let postTitles = document.querySelectorAll('.card-title')
+      let postBodies = document.querySelectorAll('.card-text')
+      console.log(postTitles)
+      postTitles.forEach((postTitle, index) => {
+        if(index + 1 === id) {
+          if(data.title !== "") {
+            postTitle.innerHTML = data.title
+          }
+        }
+      })
+
+      postBodies.forEach((postBody, index) => {
+        if(index + 1 === id) {
+          if(data.body !== "") {
+            postBody.innerHTML = data.body
+          }
+        }
+      })
+
+    });
+}
+
+
+function openSingle(id) {
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      localStorage.setItem('viewedPost', JSON.stringify(data))
+      window.location.href = 'detials.html'
+    });
+}
+
+
+
+
+function deletePost(id) {
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+    method: 'DELETE',
+})
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+
+      postBox = postBox.filter(post => post.id !== id)
+
+      let postHolder = '';
+    postBox.forEach(post => {
+         postHolder += `<div class="col-12">
+                            <div class="card border-0 my-3" style="background-color: rgba(17, 24, 39, 0.9);">
+                                <div class="card-body">
+                                    <h5 class="card-title fs-1 fw-bold">${post.title}</h5>
+                                    <p class="time blur-text small-text">Jun 15 2021</p>
+                                    <p class="card-text fs-5 blur-text">${post.body.slice(0, 200)}</p>
+                                    <div class="down d-flex justify-content-between px-2">
+                                        <a href="" class="card-link" onclick="openSingle(${post.id})">View...</a>
+                                        <div class="postcard-button">
+                                            <button type="button" class="btn btn-outline-primary mx-2 rounded" onclick="deletePost(${post.id})"><i class="bi bi-trash3 pe-2"></i>Delete</button>
+                                            <button type="button" class="btn btn-outline-primary rounded" onclick="updatePost(${post.id})"><i class="bi bi-pencil-square pe-2"></i>Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+    });
+    postWrapper.innerHTML = postHolder;
+    })
+    
+}
 

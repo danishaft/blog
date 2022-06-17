@@ -40,3 +40,6 @@ header {
 input, textarea{
     color: white;
 }
+a{
+    cursor: pointer;
+}
