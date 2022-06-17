@@ -10,9 +10,6 @@ body {
     background-color: rgba(17, 24, 39, 1);
     color: white;
 }
-header {
-    border-bottom: 0.1px solid #e5e7eb;
-}
 
 .blur-text {
     color:  #ccd5e7;
@@ -42,4 +39,7 @@ input, textarea{
 }
 a{
     cursor: pointer;
+}
+ .item:hover{
+    background-color: rgba(90, 91, 94, 0.5)!important;
 }
